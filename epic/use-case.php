@@ -39,6 +39,6 @@
 					step as Michael does not have to create an account to view streamers.</li>
 				</ul>
 		<p><strong>Frequency of Use: </strong>3 to 4 times per week.</p>
-		<a href="index.php">Return</a>
+		<h2><a href="index.php">Return</a></h2>
 	</body>
 </html>

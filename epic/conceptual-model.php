@@ -9,37 +9,48 @@
 		<h2>Entities & Attributes</h2>
 		<h3>User</h3>
 		<ul>
-			<li>user</li>
-			<li>userId</li>
+			<li>userId (primary key)</li>
 			<li>userName</li>
 			<li>userPassword</li>
+			<li>userWatches</li>
 			<li>userComment</li>
-			<li>userWatch</li>
 		</ul>
-		<h3>steamer</h3>
+		<h3>Steamer</h3>
 		<ul>
-			<li>steamerId</li>
+			<li>steamerId (primary key)</li>
 			<li>steamerName</li>
-			<li>steamerBroadcast</li>
+			<li>stremerPassword</li>
+			<li>steamerBroadcasts</li>
+			<li>steamerComment</li>
 		</ul>
-		<h3>chat</h3>
+		<h3>Stream</h3>
 		<ul>
-			<li>chatUserComment</li>>
-			<li>chatStreamerComment</li>
+			<li>streamUserWatches (foreign key)</li>
+			<li>streamSteamerBroadcasts (foreign key)</li>
+			<li>streamId (primary key)</li>
+			<li>streamName</li>
+			<li>streamCategory</li>
+			<li>streamGame</li>
+			<li>streamTime</li>
+			<li>streamViewers</li>
+			<li>streamChat-box</li>
 		</ul>
-		<h3>stream</h3>
+		<h3>Comments</h3>
 		<ul>
-			<li>streamUserWatch</li>
-			<li>streamBroadcast</li>
+			<li>commentsUserId (foreign key))</li>
+			<li>commentsStreamerId (foreign key)</li>
+			<li>commentsStreamId (foreign key)</li>
 		</ul>
 		<h1>Relations</h1>
 		<ul>
-			<li>One streamer may only broadcast one stream</li>
-			<li>Many users may watch many streams</li>
-			<li>Many users may comment many times</li>
-			<li>Many streamers may comment many times</li>
+			<li>Many users can watch many streams (n to m)</li>
+			<li>Many streamers can host many streams (n to m)</li>
+			<li>Many streams can only be hosted by one streamer (m to 1)</li>
+			<li>Many users can comment on many streams (n to m)</li>
+			<li>Many streamers can comment on many streams.</li>
 		</ul>
 		<h1>Entity Relationship Diagram</h1>
-		<a href="index.php">Return</a>
+		<img src="diagram.png" alt="Entity Relationship Diagram" width="75%" height="auto">
+		<h2><a href="index.php">Return</a></h2>
 	</body>
 </html>
