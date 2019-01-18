@@ -9,17 +9,17 @@ CREATE TABLE `user` (
 	userId  BINARY(16) NOT NULL,
 	userName VARCHAR(32) NOT NULL,
 	userPassword VARCHAR(32) NOT NULL,
-	userWatches VARCHAR(32),
+	userWatches VARCHAR(64),
 	userComment VARCHAR(128),
 	UNIQUE(userName),
 	PRIMARY KEY(userId )
 );
 
 CREATE TABLE streamer (
-	streamerId   BINARY(16) NOT NULL,
+	streamerId BINARY(16) NOT NULL,
 	streamerName VARCHAR(32) NOT NULL,
 	streamerPassword VARCHAR(32) NOT NULL,
-	streamerBroadcasts VARCHAR(32),
+	streamerBroadcasts VARCHAR(64),
 	streamerComment VARCHAR(128),
 	UNIQUE(streamerName),
 	PRIMARY KEY(streamerId)
@@ -27,14 +27,14 @@ CREATE TABLE streamer (
 
 CREATE TABLE stream (
 	streamId  BINARY(16) NOT NULL,
-	streamName BINARY(32) NOT NULL,
-	streamCategory BINARY(32) NOT NULL,
-	streamGame BINARY(32) NOT NULL,
-	streamTime BINARY(32) NOT NULL,
-	streamViewers BINARY(32) NOT NULL,
-	streamChatbox BINARY(32) NOT NULL,
-	streamUserWatches BINARY(32) NOT NULL,
-	streamStreamerBroadcast VARCHAR(128) NOT NULL,
+	streamName VARCHAR(32) NOT NULL,
+	streamCategory VARCHAR(32) NOT NULL,
+	streamGame VARCHAR(32) NOT NULL,
+	streamTime DATETIME(6) NOT NULL,
+	streamViewers VARCHAR(32) NOT NULL,
+	streamChatbox VARCHAR(32) NOT NULL,
+	streamUserWatches VARCHAR(32),
+	streamStreamerBroadcast VARCHAR(64),
 	INDEX(streamUserWatches),
 	INDEX(streamStreamerBroadcast),
 	FOREIGN KEY(streamUserWatches) REFERENCES user(userWatches),

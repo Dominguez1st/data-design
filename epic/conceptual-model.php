@@ -33,7 +33,7 @@
 			<li>streamGame</li>
 			<li>streamTime</li>
 			<li>streamViewers</li>
-			<li>streamChat-box</li>
+			<li>streamChatBox</li>
 		</ul>
 		<h3>Comments</h3>
 		<ul>
@@ -48,7 +48,7 @@
 			<li>Many streamers can host many streams (n to m)</li>
 			<li>Many streams can only be hosted by one streamer (m to 1)</li>
 			<li>Many users can comment on many streams (n to m)</li>
-			<li>Many streamers can comment on many streams.</li>
+			<li>Many streamers can comment on many streams. (n to m)</li>
 		</ul>
 		<h1>Entity Relationship Diagram</h1>
 		<img src="diagram.png" alt="Entity Relationship Diagram" width="75%" height="auto">
