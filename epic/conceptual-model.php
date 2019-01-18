@@ -17,11 +17,11 @@
 		</ul>
 		<h3>Streamer</h3>
 		<ul>
-			<li>steamerId (primary key)</li>
-			<li>steamerName</li>
-			<li>stremerPassword</li>
-			<li>steamerBroadcasts</li>
-			<li>steamerComment</li>
+			<li>streamerId (primary key)</li>
+			<li>streamerName</li>
+			<li>streamerPassword</li>
+			<li>streamerBroadcasts</li>
+			<li>streamerComment</li>
 		</ul>
 		<h3>Stream</h3>
 		<ul>
