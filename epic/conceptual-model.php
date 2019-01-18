@@ -15,7 +15,7 @@
 			<li>userWatches</li>
 			<li>userComment</li>
 		</ul>
-		<h3>Steamer</h3>
+		<h3>Streamer</h3>
 		<ul>
 			<li>steamerId (primary key)</li>
 			<li>steamerName</li>
@@ -40,6 +40,7 @@
 			<li>commentsUserId (foreign key))</li>
 			<li>commentsStreamerId (foreign key)</li>
 			<li>commentsStreamId (foreign key)</li>
+			<li>commentsContent </li>
 		</ul>
 		<h1>Relations</h1>
 		<ul>
