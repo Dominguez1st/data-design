@@ -18,7 +18,7 @@ CREATE TABLE `user` (
 	userId  BINARY(64) NOT NULL,
 	userName VARCHAR(32) NOT NULL,
 	userPassword VARCHAR(32) NOT NULL,
-	userHostsStreamId BINARY(64) NOT NULL,
+	userHostsStreamId BINARY(64),
 	FOREIGN KEY(userHostsStreamId) REFERENCES stream(streamId),
 	UNIQUE(userName),
 	PRIMARY KEY(userId )

@@ -22,6 +22,14 @@ INSERT INTO user (userId, userName, userPassword, userHostsStreamId) VALUES (UNH
 INSERT INTO user (userId, userName, userPassword, userHostsStreamId) VALUES (UNHEX("a389409742bc4f7486e1ad5163b222d6"),
 	"sarah13","safepassword1234",UNHEX("583f05e3c1e445aa98d03eed134fde16"));
 
+
+INSERT INTO user (userId, userName, userPassword, userHostsStreamId) VALUES (UNHEX("da16f72d8a084b9e8cd6522bed2fb9ff"),
+	"viewer78","weakpassword1234",NULL);
+
+
+INSERT INTO watches (watchesUserId, watchesStreamId) VALUES (UNHEX("da16f72d8a084b9e8cd6522bed2fb9ff"),
+	UNHEX("90a2a001b4424a87a4ab2a14397ae5db"));
+
 -- User ends stream
 UPDATE user SET userHostsStreamId = NULL WHERE userId = (UNHEX("583f05e3c1e445aa98d03eed134fde16"));
 
@@ -30,3 +38,9 @@ DELETE FROM stream WHERE streamId=UNHEX("583f05e3c1e445aa98d03eed134fde16");
 
 SELECT streamId,streamName,streamCategory,streamGame,streamTime,streamViewers FROM stream WHERE
 	streamId = UNHEX("3ee315e4218045c8bec05d62e4df3898");
+
+SELECT stream.streamId, stream.streamName, stream.streamCategory, stream.streamGame, stream.streamTime,
+       stream.streamViewers FROM stream INNER JOIN user ON stream.streamId = user.userHostsStreamId WHERE
+       stream.streamGame LIKE "Dark Souls";
+
+SELECT COUNT(watchesUserId) FROM watches WHERE watchesStreamId = UNHEX("90a2a001b4424a87a4ab2a14397ae5db");
