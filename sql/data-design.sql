@@ -2,18 +2,8 @@ ALTER DATABASE rdominguez45 CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 DROP TABLE IF EXISTS watches;
 DROP TABLE IF EXISTS comments;
-DROP TABLE IF EXISTS stream;
 DROP TABLE IF EXISTS `user`;
-
-CREATE TABLE `user` (
-	userId  BINARY(64) NOT NULL,
-	userName VARCHAR(32) NOT NULL,
-	userPassword VARCHAR(32) NOT NULL,
-	userHosts BINARY(64) NOT NULL,
-	KEY(userHosts),
-	UNIQUE(userName),
-	PRIMARY KEY(userId )
-);
+DROP TABLE IF EXISTS stream;
 
 CREATE TABLE stream (
 	streamId  BINARY(64) NOT NULL,
@@ -22,9 +12,16 @@ CREATE TABLE stream (
 	streamGame VARCHAR(32) NOT NULL,
 	streamTime DATETIME(6) NOT NULL,
 	streamViewers VARCHAR(32) NOT NULL,
-	FOREIGN KEY(streamId) REFERENCES user(userId),
-	FOREIGN KEY(streamId) REFERENCES user(userHosts),
 	PRIMARY KEY(streamId)
+);
+CREATE TABLE `user` (
+	userId  BINARY(64) NOT NULL,
+	userName VARCHAR(32) NOT NULL,
+	userPassword VARCHAR(32) NOT NULL,
+	userHostsStreamId BINARY(64) NOT NULL,
+	FOREIGN KEY(userHostsStreamId) REFERENCES stream(streamId),
+	UNIQUE(userName),
+	PRIMARY KEY(userId )
 );
 CREATE TABLE comments (
    commentId BINARY(64) NOT NULL,
